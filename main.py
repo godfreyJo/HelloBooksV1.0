@@ -8,9 +8,9 @@ def index():
 	return render_template('index.html')
 
 
-@app.route('/userlogin')
+@app.route('/signup')
 def login():
-	return render_template('Userlogin.html')
+	return render_template('signup.html')
 
 
 @app.route('/AdminLogin')
