@@ -34,11 +34,18 @@ books = [
 ]
 
 
-@app.route('/books/all', methods=['GET'])
-def api_all():
+@app.route('/', methods=['GET'])
+def get_books():
     return jsonify(books)
 
-@app.route('/add_books', methods=['POST'])
+@app.route('/<int:id>', methods=['GET'])
+def get_book(book_id):
+    book = [book for book in books if book['id'] == id]
+    if len (book) == 0:
+        abort(404)
+    return jsonify({'books': book[0]})
+
+@app.route('/add_book', methods=['POST'])
 def add_income():
   incomes.append(request.get_json())
   return '', 204
